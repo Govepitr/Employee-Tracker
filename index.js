@@ -47,35 +47,35 @@ function showmenu() {
     .prompt(
       {
         type: "list",
-        message: "Welcome to Employee Tracker. What would you like to do?",
+        message: "Welcome to Employee Tracker. Please make a selection?",
         name: "choices",
         choices: [
           {
-            name: "View all employees",
+            name: "View all current employees",
             value: "viewEmployees"
           },
           {
-            name: "View all departments",
+            name: "View all available departments",
             value: "viewDepartments"
           },
           {
-            name: "View all roles",
+            name: "View all available roles",
             value: "viewRoles"
           },
           {
-            name: "Add employee",
+            name: "Add a new employee",
             value: "addEmployee"
           },
           {
-            name: "Add department",
+            name: "Add a new department",
             value: "addDept"
           },
           {
-            name: "Add role",
+            name: "Add a role",
             value: "addRole"
           },
           {
-            name: "Update role",
+            name: "Update an employee's role",
             value: "updateRole"
           },
           {
@@ -118,7 +118,7 @@ function menu(option) {
 }
 
 function viewAllEmployees() {
-  connection.query('SELECT employee.id, employee.first_name, employee.last_name, role.title, department_name AS Department, role.salary, concat(manager.first_name, " ", manager.last_name) AS manager FROM employee LEFT JOIN employee manager ON  employee.manager_id = manager.id LEFT JOIN role ON employee.role_id = role.id LEFt JOIN department ON role.department_id = department.id;', function (error, res) {
+  connection.query('SELECT employee.id, employee.first_name, employee.last_name, role.title, department_name AS department, role.salary, concat(manager.first_name, " ", manager.last_name) AS manager FROM employee LEFT JOIN employee manager ON  employee.manager_id = manager.id LEFT JOIN role ON employee.role_id = role.id LEFt JOIN department ON role.department_id = department.id;', function (error, res) {
     console.table(res);
     endOrMenu();
   })
@@ -201,7 +201,7 @@ function addDept() {
 }
 
 function addDepartment(data) {
-  connection.query("INSERT INTO department SET ?", { name: data.name },
+  connection.query("INSERT INTO department SET ?", { department_id: data.name },
   function (error, res) {
     // console.log(error, res);
     if (error) throw error;
@@ -288,7 +288,7 @@ function endOrMenu() {
 }
 
 function end() {
-  console.log("Thank you for using Employee Tracker!");
+  console.log("Thanks for using Employee Tracker!");
   connection.end();
   process.exit();
 }
