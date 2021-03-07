@@ -99,6 +99,10 @@ function menu(option) {
       break;
     case "quit":
       end();
+      break;
+    default:
+      console.log("You need to make a selection.")
+      break;
   }
 }
 function viewAllEmployees() {
@@ -179,10 +183,14 @@ function addDept() {
 }
 function addDepartment(data) {
   connection.query("INSERT INTO department SET ?", { department_name: data.name},
-  function (error, res) {
-    // console.log(error, res);
-    if (error) throw error;
-  });
+    function (error, res) {
+      // console.log(error, res);
+      if (error) throw error;
+      connection.query("SELECT * from department", function (error, res) {
+        showdepartments = res.map(dep => ({ name: dep.name, value: dep.id }))
+      })
+    }
+  );
   endOrMenu();
 }
 function addRole() {
