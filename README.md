@@ -24,7 +24,7 @@
   ❓ A Node.js command-line application to manage a company's employee database using Node.js, Inquirer, and MySQL.
 
   ### Links showing the functionality:
-  > -[:movie_camera: Click here for an external link!]()
+  > - [:movie_camera: Click here for an external link!](https://drive.google.com/file/d/1FYmFv1JGBGq71ZYGk9iIoWUbhmnBqwBM/view)
 
 
 
