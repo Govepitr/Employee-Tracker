@@ -1,4 +1,4 @@
-USE employees;
+USE employee;
 
 INSERT INTO department (department_name)
 VALUES
@@ -35,8 +35,8 @@ VALUES
   UPDATE employee SET manager_id = 6 WHERE id = 7;
   UPDATE employee SET manager_id = 4 WHERE id = 8;
   
-USE employees;
-SELECT employee.id, employee.first_name, employee.last_name, title, department_name Department ,
+USE employee;
+SELECT employee.id, employee.first_name, employee.last_name, title, department_name department ,
  salary, concat(manager.first_name, " ", manager.last_name) manager
 FROM employee 
 LEFT JOIN employee manager
