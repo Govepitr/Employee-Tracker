@@ -51,18 +51,23 @@
   **How to set up the Database:**
   <br />
   Starts up the mysql command lines and I've provided you a username to utilize:
+  <br />
   `mysql -u bootcamp -p`
   <br />
   Here's the password to connect:
+  <br />
   `Password: bootcamp`
   <br />
   This is 1 of 2 commands to reset the database:
+  <br />
   `source schema.sql;`
   <br />
   Here's the second:
+  <br />
   `source seeds.sql;`
   <br />
   Enter this command to close mysql:
+  <br />
   `quit;`
 
   
