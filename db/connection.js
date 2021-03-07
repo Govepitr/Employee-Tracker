@@ -11,5 +11,5 @@ var connection = mysql.createConnection({
 console.log('Connected');
 connection.connect();
 
-module.exports connection;
+module.exports = connection;
 
